@@ -1,4 +1,4 @@
-package com.example.todouser;
+package com.example.todouser.Model;
 
 import android.app.Application;
 
