@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity  {
         dataBase = Room.databaseBuilder(this, UserDatabase.class, "mi-database.db")
                 .allowMainThreadQueries()
                 .build();
-        db = dataBase.getUserDao();
+        db = dataBase.UserDao();
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

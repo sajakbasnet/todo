@@ -1,5 +1,6 @@
 package com.example.todouser.data;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -24,7 +25,7 @@ public interface UserDao {
     @Delete
     void delete(User user);
 
-    @Query("SELECT * FROM User WHERE email= :mail and userName= :username")
-    User getUsers(String mail, String username);
+    @Query("SELECT * FROM User WHERE id=:userId")
+    LiveData<User> loadUserById(int userId);
 
 }

@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         userDao = Room.databaseBuilder(this, UserDatabase.class, "mi-database.db").allowMainThreadQueries()
-                .build().getUserDao();
+                .build().UserDao();
 
         btn_register .setOnClickListener(new View.OnClickListener() {
             @Override
