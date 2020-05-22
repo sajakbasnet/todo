@@ -13,8 +13,7 @@ public class UserRepository {
 
 
 
-    public LiveData<User> getTaskById(int userId){
-        return dao.loadUserById(userId);
+    public LiveData<User> getUserBy(String username, String email){        return dao.loadUserBy(username, email);
     }
 
     public void update(final User user){

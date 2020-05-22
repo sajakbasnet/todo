@@ -25,7 +25,7 @@ public interface UserDao {
     @Delete
     void delete(User user);
 
-    @Query("SELECT * FROM User WHERE id=:userId")
-    LiveData<User> loadUserById(int userId);
+    @Query("SELECT * FROM User WHERE username = :username and email = :email")
+    LiveData<User> loadUserBy(String username , String email);
 
 }

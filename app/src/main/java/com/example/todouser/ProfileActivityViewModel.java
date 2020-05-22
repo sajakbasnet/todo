@@ -15,13 +15,11 @@ import com.example.todouser.data.UserRepository;
 public class ProfileActivityViewModel extends AndroidViewModel {
     UserRepository repository;
     private LiveData<User> user;
-    public ProfileActivityViewModel(Application application, int userId) {
+    public ProfileActivityViewModel(Application application, String username, String email) {
         super(application);
        UserDatabase data = UserDatabase.getInstance(application);
         repository = new UserRepository(data);
-        user = repository.getTaskById(userId);
+        user = repository.getUserBy(username, email);
     }
-    public LiveData<User> getUserById(){
-        return user;
-    }
+
 }
