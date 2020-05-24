@@ -56,8 +56,10 @@ public class HomeActivity extends AppCompatActivity {
 
                             selectedFragment = new ListFragment();
 
+
                             break;
                         case R.id.nav_profile:
+                            user = (User) getIntent().getSerializableExtra("User");
                             selectedFragment = new UserFragment();
                             break;
                         case R.id.nav_notification:
