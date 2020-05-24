@@ -31,11 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
 
-        user = (User) getIntent().getSerializableExtra("User");
-        tvUser = findViewById(R.id.tvUser);
-        if (user != null) {
-            tvUser.setText(user.getUserName());
-        }
+
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -45,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
                     new ListFragment()).commit();
         }
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -52,10 +49,17 @@ public class HomeActivity extends AppCompatActivity {
                    Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.nav_list:
+
                             selectedFragment = new ListFragment();
 
                             break;
                         case R.id.nav_profile:
+                            user = (User) getIntent().getSerializableExtra("User");
+                            tvUser = findViewById(R.id.tvUser);
+                            if (user != null) {
+                                tvUser.setText(user.getUserName());
+                            }
+
                             selectedFragment = new UserFragment();
                             break;
                         case R.id.nav_notification:
@@ -108,5 +112,9 @@ public class HomeActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    public User getMyData(){
+        return user;
     }
 }
