@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.example.todouser.fragments.*;
 import com.example.todouser.Model.User;
-import com.example.todouser.data.UserDao;
+import com.example.todouser.database.UserDao;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

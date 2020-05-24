@@ -1,4 +1,4 @@
-package com.example.todouser.data;
+package com.example.todouser.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -8,8 +8,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.todouser.Model.User;
-
-import java.util.List;
 
 @Dao
 public interface UserDao {

@@ -1,10 +1,8 @@
-package com.example.todouser.data;
+package com.example.todouser.database;
 
 import androidx.lifecycle.LiveData;
 
 import com.example.todouser.Model.User;
-
-import java.util.List;
 
 public class UserRepository {
     UserDao dao;

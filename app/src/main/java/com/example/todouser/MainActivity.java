@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.todouser.Model.User;
-import com.example.todouser.data.UserDao;
-import com.example.todouser.data.UserDatabase;
+import com.example.todouser.database.UserDao;
+import com.example.todouser.database.UserDatabase;
 public class MainActivity extends AppCompatActivity  {
 
     Button btn_login,btn_register;
