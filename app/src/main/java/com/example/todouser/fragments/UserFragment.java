@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.todouser.Model.ProfileActivityViewModel;
 import com.example.todouser.Model.User;
@@ -17,21 +15,27 @@ import com.example.todouser.R;
 
 public class UserFragment extends Fragment {
     ProfileActivityViewModel viewModel;
-    private LiveData<User> user;
-    private TextView tvUsers;
+    private User user;
+    TextView tvUser,et_email,tvUsers;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        View v =  inflater.inflate(R.layout.fragment_user, container, false);
+
+        user = (User) getActivity().getIntent().getSerializableExtra("User");
+        tvUser = (TextView) v.findViewById(R.id.tvUser);
+        tvUsers = (TextView) v.findViewById(R.id.tvUsers);
+
+        et_email = (TextView) v.findViewById(R.id.et_email);
+        if (user != null) {
+            tvUser.setText(user.getUserName());
+            tvUsers.setText(user.getUserName());
+            et_email.setText(user.getEmail());
+        }
+        return  v;
 
     }
-   /* public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(ProfileActivityViewModel.class);
-        tvUsers = getView().findViewById(R.id.tvUser);
-        if (user != null) {
 
-        }
-    }*/
+
 
 }
