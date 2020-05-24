@@ -1,4 +1,4 @@
-package com.example.todouser.tasks;
+package com.example.todouser.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.todouser.R;
 import com.example.todouser.addedittask.AddEditTaskActivity;
 import com.example.todouser.database.TaskEntry;
+import com.example.todouser.tasks.TaskActivityViewModel;
+import com.example.todouser.tasks.TaskAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
