@@ -16,8 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.example.todouser.fragments.*;
 import com.example.todouser.Model.User;
-import com.example.todouser.data.UserDao;
+import com.example.todouser.database.UserDao;
 
+import com.example.todouser.tasks.ListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -31,11 +32,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
 
-        user = (User) getIntent().getSerializableExtra("User");
+      /*  user = (User) getIntent().getSerializableExtra("User");
         tvUser = findViewById(R.id.tvUser);
         if (user != null) {
             tvUser.setText(user.getUserName());
-        }
+        }*/
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -52,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
                    Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.nav_list:
+
                             selectedFragment = new ListFragment();
 
                             break;

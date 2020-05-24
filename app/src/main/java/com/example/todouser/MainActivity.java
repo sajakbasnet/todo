@@ -8,8 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.todouser.Model.User;
-import com.example.todouser.data.UserDao;
-import com.example.todouser.data.UserDatabase;
+import com.example.todouser.database.UserDao;
+import com.example.todouser.database.UserDatabase;
+import com.example.todouser.tasks.TaskActivity;
+
 public class MainActivity extends AppCompatActivity  {
 
     Button btn_login,btn_register;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity  {
 
                 User user = db.getUser(email, password);
                 if (user != null) {
-                    Intent i = new Intent(MainActivity.this,HomeActivity.class);
+                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     i.putExtra("User", user);
                     startActivity(i);
                     finish();

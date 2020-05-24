@@ -2,13 +2,11 @@ package com.example.todouser.Model;
 
 import android.app.Application;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.todouser.Model.User;
-import com.example.todouser.data.UserDatabase;
-import com.example.todouser.data.UserRepository;
+import com.example.todouser.database.UserDatabase;
+import com.example.todouser.database.UserRepository;
 
 
 

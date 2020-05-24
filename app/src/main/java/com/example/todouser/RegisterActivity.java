@@ -1,8 +1,6 @@
 package com.example.todouser;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import com.example.todouser.Model.User;
-import com.example.todouser.data.UserDao;
-import com.example.todouser.data.UserDatabase;
+import com.example.todouser.database.UserDao;
+import com.example.todouser.database.UserDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     Button btn_register;

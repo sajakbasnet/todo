@@ -25,13 +25,13 @@ public class UserFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_user, container, false);
 
     }
-   /* public void onViewCreated(View view, Bundle savedInstanceState) {
+   public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel = ViewModelProviders.of(this).get(ProfileActivityViewModel.class);
         tvUsers = getView().findViewById(R.id.tvUser);
         if (user != null) {
 
         }
-    }*/
+    }
 
 }
