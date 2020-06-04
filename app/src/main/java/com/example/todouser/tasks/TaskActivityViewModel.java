@@ -35,5 +35,6 @@ public class TaskActivityViewModel extends AndroidViewModel {
     public void deleteTask(TaskEntry task){
         repository.deleteTask(task);
     }
+    public  LiveData<Integer> getCount() { return repository.getCount(); }
 
 }

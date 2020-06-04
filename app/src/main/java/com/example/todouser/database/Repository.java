@@ -17,6 +17,7 @@ TaskDao dao;
        return dao.loadAllTasks();
     }
 
+
     public LiveData<TaskEntry> getTaskById(int taskId){
         return dao.loadTAskById(taskId);
     }
@@ -47,4 +48,8 @@ TaskDao dao;
             }
         });
     }
+    public  LiveData<Integer> getCount() {
+        return dao.getCount();
+    }
+
 }

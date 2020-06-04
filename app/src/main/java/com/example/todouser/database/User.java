@@ -1,4 +1,4 @@
-package com.example.todouser.Model;
+package com.example.todouser.database;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Entity
 public class User implements Serializable {
 
-   @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
     private String userName;
@@ -26,8 +26,8 @@ public class User implements Serializable {
         return id;
     }
 
-    public void setId(@NonNull int id) {
-        this.id = id;
+    public void setId(@NonNull int uid) {
+        this.id = uid;
     }
 
     public String getUserName() {

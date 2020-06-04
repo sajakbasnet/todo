@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
-
-import com.example.todouser.Model.User;
 import com.example.todouser.database.UserDao;
+
+import com.example.todouser.database.User;
 import com.example.todouser.database.UserDatabase;
 
 public class RegisterActivity extends AppCompatActivity {

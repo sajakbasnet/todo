@@ -39,6 +39,7 @@
     <!-- Strings for AddTaskActivity -->
     <!-- This etaskEntrytask has a unicode character for "..." = "&#8230;" -->
     <string name="edit_task_description">Describe your taskEntry&#8230;</string>
+    <string name="edit_task_title">Enter Your Title&#8230;</string>
     <string name="priority_string">Priority</string>
 
     <string name="high_priority">High</string>
@@ -47,6 +48,9 @@
 
     <string name="add_button">Add</string>
     <string name="update_button">Update</string>
+
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic to speak</string>
 
 
 </resources>

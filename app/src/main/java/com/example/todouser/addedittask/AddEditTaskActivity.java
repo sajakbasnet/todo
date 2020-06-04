@@ -1,22 +1,24 @@
 package com.example.todouser.addedittask;
-
-import androidx.appcompat.app.AppCompatActivity;
+import
+        androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
-
+import android.widget.Toast;
 import com.example.todouser.R;
-import com.example.todouser.database.AppDatabase;
-import com.example.todouser.database.Repository;
 import com.example.todouser.database.TaskEntry;
-
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class AddEditTaskActivity extends AppCompatActivity {
 
@@ -32,8 +34,12 @@ public class AddEditTaskActivity extends AppCompatActivity {
     private static final int DEFAULT_TASK_ID = -1;
     // Constant for logging
     private static final String TAG = AddEditTaskActivity.class.getSimpleName();
+    private final int REQ_CODE = 100;
     // Fields for views
+
     EditText mEditText;
+
+    private ImageButton mSpeakBtn;
     RadioGroup mRadioGroup;
     Button mButton;
 
@@ -45,10 +51,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_task);
-
-
-
-        initViews();
+           initViews();
 
         if (savedInstanceState != null && savedInstanceState.containsKey(INSTANCE_TASK_ID)) {
             mTaskId = savedInstanceState.getInt(INSTANCE_TASK_ID, DEFAULT_TASK_ID);
@@ -90,8 +93,29 @@ public class AddEditTaskActivity extends AppCompatActivity {
     /**
      * initViews is called from onCreate to init the member variable views
      */
+
     private void initViews() {
+
         mEditText = findViewById(R.id.editTextTaskDescription);
+        ImageView speak = findViewById(R.id.speak);
+        speak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Need to speak");
+                try {
+                    startActivityForResult(intent, REQ_CODE);
+                } catch (ActivityNotFoundException a) {
+                    Toast.makeText(getApplicationContext(),
+                            "Sorry your device not supported",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         mRadioGroup = findViewById(R.id.radioGroup);
 
         mButton = findViewById(R.id.saveButton);
@@ -101,7 +125,25 @@ public class AddEditTaskActivity extends AppCompatActivity {
                 onSaveButtonClicked();
             }
         });
+
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQ_CODE: {
+                if (resultCode == RESULT_OK && null != data) {
+
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                   mEditText.setText(result.get(0));
+                }
+                break;
+            }
+
+        }
+    }
+   
 
     /**
      * populateUI would be called to populate the UI when in update mode
@@ -112,7 +154,9 @@ public class AddEditTaskActivity extends AppCompatActivity {
         if(task == null){
             return;
         }
+
         mEditText.setText(task.getDescription());
+
         setPriorityInViews(task.getPriority());
 
     }
@@ -123,6 +167,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
      */
     public void onSaveButtonClicked() {
         // Not yet implemented
+
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
         Date date = new Date();
@@ -174,4 +219,5 @@ public class AddEditTaskActivity extends AppCompatActivity {
                 ((RadioGroup) findViewById(R.id.radioGroup)).check(R.id.radButton3);
         }
     }
+
 }

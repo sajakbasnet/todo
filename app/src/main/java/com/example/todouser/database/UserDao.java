@@ -5,9 +5,11 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
 import androidx.room.Update;
 
-import com.example.todouser.Model.User;
+
+
 
 @Dao
 public interface UserDao {
@@ -25,5 +27,9 @@ public interface UserDao {
 
     @Query("SELECT * FROM User WHERE username = :username and email = :email")
     LiveData<User> loadUserBy(String username , String email);
+
+
+
+
 
 }

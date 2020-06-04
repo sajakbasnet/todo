@@ -7,12 +7,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.todouser.Model.User;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class}, version = 1, exportSchema = false)
+@Database(entities = {com.example.todouser.database.User.class}, version = 1, exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
     private static final String LOG_TAG = UserDatabase.class.getSimpleName();
     private static final Object LOCK = new Object();

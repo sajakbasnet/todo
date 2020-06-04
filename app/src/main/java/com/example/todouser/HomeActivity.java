@@ -11,20 +11,27 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import com.example.todouser.fragments.*;
-import com.example.todouser.Model.User;
+import androidx.lifecycle.Observer;
+
+
+import com.example.todouser.database.TaskDao;
+import com.example.todouser.database.User;
 import com.example.todouser.database.UserDao;
+import com.example.todouser.fragments.*;
+
 
 import com.example.todouser.fragments.ListFragment;
+import com.example.todouser.tasks.TaskActivityViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
-    private TextView tvUser,et_email;
+    private TextView tvUser,et_email,count;
     private User user;
-    UserDao db;
+
 
 
     @Override
@@ -32,6 +39,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
 
+
+
+
+     
       /*  user = (User) getIntent().getSerializableExtra("User");
         tvUser = findViewById(R.id.tvUser);
         if (user != null) {

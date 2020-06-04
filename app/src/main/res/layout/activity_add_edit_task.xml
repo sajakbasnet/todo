@@ -13,7 +13,6 @@
     android:paddingStart="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <!-- EditText for getttaskEntrytask description input -->
     <EditText
         android:id="@+id/editTextTaskDescription"
         android:layout_width="match_parent"
@@ -21,6 +20,17 @@
         android:gravity="start"
         android:hint="@string/edit_task_description"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
+    <ImageView
+        android:id="@+id/speak"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:background="?selectableItemBackground"
+        android:src="@android:drawable/ic_btn_speak_now" />
 
     <!-- TextView and FrameLayout (which contains buttons) for Priority Selection -->
     <TextView
@@ -83,5 +93,10 @@
         android:background="@color/colorPrimary"
         android:text="@string/add_button"
         android:textColor="@android:color/primary_text_dark" />
+
+
+
+
+
 
 </LinearLayout>

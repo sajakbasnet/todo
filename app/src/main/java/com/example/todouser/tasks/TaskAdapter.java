@@ -69,11 +69,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(TaskViewHolder holder, int position) {
         // Determine the values of the wanted data
         TaskEntry taskEntry = mTaskEntries.get(position);
+
         String description = taskEntry.getDescription();
         int priority = taskEntry.getPriority();
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
 
         //Set values
+
         holder.taskDescriptionView.setText(description);
         holder.updatedAtView.setText(updatedAt);
 
@@ -142,6 +144,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // Class variables for the task description and priority TextViews
+
         TextView taskDescriptionView;
         TextView updatedAtView;
         TextView priorityView;

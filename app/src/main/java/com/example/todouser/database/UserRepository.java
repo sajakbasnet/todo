@@ -1,9 +1,7 @@
 package com.example.todouser.database;
 
 import androidx.lifecycle.LiveData;
-
-import com.example.todouser.Model.User;
-
+import com.example.todouser.database.UserDao;
 public class UserRepository {
     UserDao dao;
     public UserRepository(UserDatabase userDatabase){   dao = userDatabase.UserDao();
@@ -11,7 +9,8 @@ public class UserRepository {
 
 
 
-    public LiveData<User> getUserBy(String username, String email){        return dao.loadUserBy(username, email);
+    public LiveData<User> getUserBy(String username, String email){
+        return dao.loadUserBy(username, email);
     }
 
     public void update(final User user){

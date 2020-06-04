@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {com.example.todouser.database.TaskEntry.class}, version = 1, exportSchema = false)
-@TypeConverters(com.example.todomvvm.database.DateConverter.class)
+@TypeConverters(com.example.todouser.database.DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String LOG_TAG = AppDatabase.class.getSimpleName();
