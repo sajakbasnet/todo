@@ -69,14 +69,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     public void onBindViewHolder(TaskViewHolder holder, int position) {
         // Determine the values of the wanted data
         TaskEntry taskEntry = mTaskEntries.get(position);
-
+        String title = taskEntry.getTitle();
         String description = taskEntry.getDescription();
         int priority = taskEntry.getPriority();
+        String tododa = taskEntry.getTododa();
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
 
         //Set values
-
+        holder.taskTitleView.setText(title);
         holder.taskDescriptionView.setText(description);
+        holder.taskTododaView.setText(tododa);
         holder.updatedAtView.setText(updatedAt);
 
         // Programmatically set the text and color for the priority TextView
@@ -144,8 +146,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         // Class variables for the task description and priority TextViews
-
+        TextView taskTitleView;
         TextView taskDescriptionView;
+        TextView taskTododaView;
         TextView updatedAtView;
         TextView priorityView;
 
@@ -156,8 +159,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
          */
         public TaskViewHolder(View itemView) {
             super(itemView);
-
+            taskTitleView = itemView.findViewById(R.id.taskTitle);
             taskDescriptionView = itemView.findViewById(R.id.taskDescription);
+            taskTododaView = itemView.findViewById(R.id.taskTodo);
             updatedAtView = itemView.findViewById(R.id.taskUpdatedAt);
             priorityView = itemView.findViewById(R.id.priorityTextView);
             itemView.setOnClickListener(this);

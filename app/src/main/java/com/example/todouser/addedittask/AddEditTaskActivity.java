@@ -3,20 +3,31 @@ import
         androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.text.Editable;
+import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.todouser.R;
 import com.example.todouser.database.TaskEntry;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -35,13 +46,20 @@ public class AddEditTaskActivity extends AppCompatActivity {
     // Constant for logging
     private static final String TAG = AddEditTaskActivity.class.getSimpleName();
     private final int REQ_CODE = 100;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+    private static final String DATE_FORMAT = "dd/MM/yyy";
     // Fields for views
 
-    EditText mEditText;
 
+    EditText mEditText;
+    EditText mEditText1;
     private ImageButton mSpeakBtn;
     RadioGroup mRadioGroup;
     Button mButton;
+    EditText eText;
+    Button btnGet;
+    TextView tvw;
+    DatePickerDialog picker;
 
     private int mTaskId = DEFAULT_TASK_ID;
 
@@ -51,7 +69,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_task);
-           initViews();
+        initViews();
 
         if (savedInstanceState != null && savedInstanceState.containsKey(INSTANCE_TASK_ID)) {
             mTaskId = savedInstanceState.getInt(INSTANCE_TASK_ID, DEFAULT_TASK_ID);
@@ -78,7 +96,7 @@ public class AddEditTaskActivity extends AppCompatActivity {
                 });
 
             }
-        }else{
+        } else {
             AddEditTaskViewModelFactory factory = new AddEditTaskViewModelFactory(getApplication(), mTaskId);
             viewModel = ViewModelProviders.of(this, factory).get(AddEditTaskViewModel.class);
         }
@@ -95,8 +113,37 @@ public class AddEditTaskActivity extends AppCompatActivity {
      */
 
     private void initViews() {
-
+        mEditText1 = findViewById(R.id.editTextTaskTitle);
         mEditText = findViewById(R.id.editTextTaskDescription);
+        tvw = (TextView) findViewById(R.id.textView1);
+        eText = (EditText) findViewById(R.id.editText1);
+        eText.setInputType(InputType.TYPE_NULL);
+        eText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar cldr = Calendar.getInstance();
+                int day = cldr.get(Calendar.DAY_OF_MONTH);
+                int month = cldr.get(Calendar.MONTH);
+                int year = cldr.get(Calendar.YEAR);
+                // date picker dialog
+                picker = new DatePickerDialog(AddEditTaskActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+                picker.show();
+            }
+        });
+        btnGet = (Button) findViewById(R.id.button1);
+        btnGet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvw.setText("Selected Date: " + eText.getText());
+            }
+        });
+
         ImageView speak = findViewById(R.id.speak);
         speak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,10 +201,10 @@ public class AddEditTaskActivity extends AppCompatActivity {
         if(task == null){
             return;
         }
-
+        mEditText1.setText(task.getTitle());
         mEditText.setText(task.getDescription());
-
         setPriorityInViews(task.getPriority());
+        eText.setText(task.getTododa());
 
     }
 
@@ -165,13 +212,15 @@ public class AddEditTaskActivity extends AppCompatActivity {
      * onSaveButtonClicked is called when the "save" button is clicked.
      * It retrieves user input and inserts that new task data into the underlying database.
      */
-    public void onSaveButtonClicked() {
+    public void onSaveButtonClicked()  {
         // Not yet implemented
-
+        String title = mEditText1.getText().toString();
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
+        String tododa = eText.getText().toString();
         Date date = new Date();
-        TaskEntry todo = new TaskEntry(description, priority, date);
+
+        TaskEntry todo = new TaskEntry(title,description,priority,tododa, date);
         if(mTaskId == DEFAULT_TASK_ID)
             viewModel.insertTask(todo);
         else{
