@@ -22,6 +22,7 @@ public class UserFragment extends Fragment {
 
         View v =  inflater.inflate(R.layout.fragment_user, container, false);
 
+
         user = (User) getActivity().getIntent().getSerializableExtra("User");
         tvUser = (TextView) v.findViewById(R.id.tvUser);
         tvUsers = (TextView) v.findViewById(R.id.tvUsers);
@@ -35,6 +36,7 @@ public class UserFragment extends Fragment {
         return  v;
 
     }
+
 
 
 
