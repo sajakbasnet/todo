@@ -10,8 +10,11 @@ import android.widget.Toast;
 import com.example.todouser.Model.User;
 import com.example.todouser.database.UserDao;
 import com.example.todouser.database.UserDatabase;
+<<<<<<< HEAD
 import com.example.todouser.tasks.TaskActivity;
 
+=======
+>>>>>>> 6c058ce7b3ab479fd31560cbfa3ce59fd9190d1d
 public class MainActivity extends AppCompatActivity  {
 
     Button btn_login,btn_register;
