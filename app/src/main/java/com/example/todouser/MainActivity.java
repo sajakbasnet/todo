@@ -7,12 +7,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+<<<<<<< HEAD
 
 import com.example.todouser.database.User;
 
 import com.example.todouser.database.UserDao;
 import com.example.todouser.database.UserDatabase;
 
+=======
+import com.example.todouser.Model.User;
+import com.example.todouser.database.UserDao;
+import com.example.todouser.database.UserDatabase;
+>>>>>>> user_description
 public class MainActivity extends AppCompatActivity  {
 
     Button btn_login,btn_register;

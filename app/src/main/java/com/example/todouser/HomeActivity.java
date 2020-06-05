@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-     
+
       /*  user = (User) getIntent().getSerializableExtra("User");
         tvUser = findViewById(R.id.tvUser);
         if (user != null) {
@@ -61,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                   Fragment selectedFragment = null;
+                    Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.nav_list:
 
@@ -92,26 +92,26 @@ public class HomeActivity extends AppCompatActivity {
         Intent in = getIntent();
         String string = in.getStringExtra("message");
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-            builder.setTitle("Confirmation !").
-                    setMessage("You sure, that you want to logout?");
-            builder.setPositiveButton("Yes",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Intent i = new Intent(getApplicationContext(),
-                                    MainActivity.class);
-                            startActivity(i);
-                        }
-                    });
-            builder.setNegativeButton("No",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-            AlertDialog alert11 = builder.create();
-            alert11.show();
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setTitle("Confirmation !").
+                setMessage("You sure, that you want to logout?");
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent i = new Intent(getApplicationContext(),
+                                MainActivity.class);
+                        startActivity(i);
+                    }
+                });
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder.create();
+        alert11.show();
+    }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@drawable/todo"
+    android:orientation="vertical">
+
   <LinearLayout
-      android:layout_width="400dp"
-      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
       android:orientation="vertical">
 
     <TextView
@@ -15,76 +17,83 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/tv_subtitle"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="125dp"
+        android:layout_marginBottom="10dp"
         android:text="Login "
-        android:textSize="50sp" />
+        android:textColor="#289BE8"
+        android:textSize="50sp"
+        app:fontFamily="@font/carter_one" />
 
     <TextView
         android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tag"
-        android:textSize="17sp"
-        android:layout_marginLeft="90dp"
-        android:layout_marginBottom="20dp"
-
         android:layout_above="@id/et_email"
-        />
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/tag"
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/e_mail"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="15dp"
-        android:inputType="textEmailAddress"
+        android:textColor="#F8F8F8"
+        android:textSize="12sp"
+        app:fontFamily="@font/chonburi" />
 
-        android:layout_above="@id/et_password"
-        android:background="@drawable/et_custom"
-        android:textSize="15sp" />
 
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="@string/password"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:padding="15dp"
 
-        android:inputType="textPassword"
-        android:layout_centerInParent="true"
-        android:background="@drawable/et_custom"
-        android:textSize="15sp" />
+      <EditText
+          android:id="@+id/et_email"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:layout_above="@id/et_password"
+          android:drawableLeft="@drawable/ic_email_black_24dp"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:background="@drawable/et_custom"
+          android:hint="@string/e_mail"
+
+          android:inputType="textEmailAddress"
+          android:padding="15dp"
+          android:textSize="15sp" />
+
+
+      <EditText
+          android:id="@+id/et_password"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:layout_centerInParent="true"
+          android:layout_marginLeft="20dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginRight="20dp"
+          android:background="@drawable/et_custom"
+          android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
+          android:hint="@string/password"
+          android:inputType="textPassword"
+          android:padding="15dp"
+          android:textSize="15sp" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_password"
-        android:background="@drawable/btn_custom"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_custom"
 
-        android:textColor="@android:color/white"
-        android:text="@string/login"/>
+        android:text="@string/login"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#388E3C"
+        android:layout_centerInParent="true"
 
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:layout_centerInParent="true"
-        android:textColor="@android:color/white"
-        android:text="@string/register"/>
+        android:layout_marginRight="20dp"
+        android:background="#388E3C"
+        android:text="@string/register"
+        android:textColor="@android:color/white" />
   </LinearLayout>
 </RelativeLayout>

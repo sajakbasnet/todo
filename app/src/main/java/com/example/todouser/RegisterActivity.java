@@ -12,7 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import com.example.todouser.database.UserDao;
 
+<<<<<<< HEAD
 import com.example.todouser.database.User;
+=======
+import com.example.todouser.Model.User;
+import com.example.todouser.database.UserDao;
+>>>>>>> user_description
 import com.example.todouser.database.UserDatabase;
 
 public class RegisterActivity extends AppCompatActivity {

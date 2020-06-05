@@ -10,7 +10,6 @@ import androidx.room.Update;
 
 
 
-
 @Dao
 public interface UserDao {
     @Query("SELECT * FROM User where email= :mail and password= :password")

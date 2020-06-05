@@ -19,14 +19,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UserFragment extends Fragment {
 
     private User user;
-TaskDao task;
-  TextView tvUser,et_email,tvUsers,count;
-  TaskActivityViewModel taskActivitymodel;
+    TaskDao task;
+    TextView tvUser,et_email,tvUsers,count;
+    TaskActivityViewModel taskActivitymodel;
 
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-       View v =  inflater.inflate(R.layout.fragment_user, container, false);
+        View v =  inflater.inflate(R.layout.fragment_user, container, false);
 
         user = (User) getActivity().getIntent().getSerializableExtra("User");
 
