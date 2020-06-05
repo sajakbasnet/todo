@@ -18,7 +18,7 @@ import com.example.todouser.fragments.*;
 import com.example.todouser.Model.User;
 import com.example.todouser.database.UserDao;
 
-import com.example.todouser.tasks.ListFragment;
+import com.example.todouser.fragments.ListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
