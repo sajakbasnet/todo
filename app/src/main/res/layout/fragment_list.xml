@@ -3,14 +3,30 @@
     This layout defines the main activity screen and displays a listtaskEntriesasks (if they exist),
     and a floating action button that launches another activity.
 -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TODO - List"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/architects_daughter" />
+
+<FrameLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- RecyclerView that is responsible for holding a listtaskEntrytask data -->
 
     <!-- Floating action button that launches AddTaskActivity when clicked -->
-
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -31,3 +47,4 @@
 
 
 </FrameLayout>
+</LinearLayout>

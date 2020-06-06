@@ -76,9 +76,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
 
         //Set values
-        holder.taskTitleView.setText(title);
-        holder.taskDescriptionView.setText(description);
-        holder.taskTododaView.setText(tododa);
+        holder.taskTitleView.setText("Title : " + title);
+        holder.taskDescriptionView.setText("Description : " + description);
+        holder.taskTododaView.setText("Scheduled For : " + tododa);
         holder.updatedAtView.setText(updatedAt);
 
         // Programmatically set the text and color for the priority TextView

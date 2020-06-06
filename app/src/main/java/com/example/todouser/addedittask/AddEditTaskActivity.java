@@ -1,37 +1,31 @@
 package com.example.todouser.addedittask;
-import
-        androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.text.Editable;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import com.allyants.notifyme.NotifyMe;
 import com.example.todouser.R;
 import com.example.todouser.database.TaskEntry;
-
-import java.text.ParseException;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class AddEditTaskActivity extends AppCompatActivity {
+public class AddEditTaskActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     // Extra for the task ID to be received in the intent
     public static final String EXTRA_TASK_ID = "extraTaskId";
@@ -45,25 +39,22 @@ public class AddEditTaskActivity extends AppCompatActivity {
     private static final int DEFAULT_TASK_ID = -1;
     // Constant for logging
     private static final String TAG = AddEditTaskActivity.class.getSimpleName();
-    private final int REQ_CODE = 100;
+    final Calendar now = Calendar.getInstance();
     private SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
     private static final String DATE_FORMAT = "dd/MM/yyy";
+    private final int REQ_CODE_SPEECH_INPUT1 = 101;
+    private final int REQ_CODE_SPEECH_INPUT2 = 102;
+    private int mTaskId = DEFAULT_TASK_ID;
     // Fields for views
-
-
     EditText mEditText;
     EditText mEditText1;
-    private ImageButton mSpeakBtn;
     RadioGroup mRadioGroup;
     Button mButton;
     EditText eText;
     Button btnGet;
     TextView tvw;
     DatePickerDialog picker;
-
-    private int mTaskId = DEFAULT_TASK_ID;
-
-
+    TimePickerDialog picker1;
     AddEditTaskViewModel viewModel;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,89 +99,115 @@ public class AddEditTaskActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+
     /**
      * initViews is called from onCreate to init the member variable views
      */
-
     private void initViews() {
         mEditText1 = findViewById(R.id.editTextTaskTitle);
         mEditText = findViewById(R.id.editTextTaskDescription);
         tvw = (TextView) findViewById(R.id.textView1);
         eText = (EditText) findViewById(R.id.editText1);
-        eText.setInputType(InputType.TYPE_NULL);
-        eText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar cldr = Calendar.getInstance();
-                int day = cldr.get(Calendar.DAY_OF_MONTH);
-                int month = cldr.get(Calendar.MONTH);
-                int year = cldr.get(Calendar.YEAR);
-                // date picker dialog
-                picker = new DatePickerDialog(AddEditTaskActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-                            }
-                        }, year, month, day);
-                picker.show();
-            }
-        });
+       eText.setInputType(InputType.TYPE_NULL);
+
+                picker = DatePickerDialog.newInstance(AddEditTaskActivity.this,
+                       now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+
+                );
+                picker1 = TimePickerDialog.newInstance(AddEditTaskActivity.this,
+                        now.get(Calendar.HOUR_OF_DAY),
+                        now.get(Calendar.MINUTE),
+                        now.get(Calendar.SECOND),
+                        false
+
+                        );
+
+
+
         btnGet = (Button) findViewById(R.id.button1);
+
+
         btnGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvw.setText("Selected Date: " + eText.getText());
+
+                picker.show(getFragmentManager(), "Datepickerdialog");
             }
         });
 
         ImageView speak = findViewById(R.id.speak);
-        speak.setOnClickListener(new View.OnClickListener() {
+        ImageView speak1 = findViewById(R.id.speak1);
+
+       speak1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Need to speak");
-                try {
-                    startActivityForResult(intent, REQ_CODE);
-                } catch (ActivityNotFoundException a) {
-                    Toast.makeText(getApplicationContext(),
-                            "Sorry your device not supported",
-                            Toast.LENGTH_SHORT).show();
-                }
+                promptSpeechInput(REQ_CODE_SPEECH_INPUT1);
             }
         });
+       speak.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                promptSpeechInput(REQ_CODE_SPEECH_INPUT2);
+            }
+        });
         mRadioGroup = findViewById(R.id.radioGroup);
 
         mButton = findViewById(R.id.saveButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 onSaveButtonClicked();
             }
         });
 
     }
+    private void promptSpeechInput(int req) {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak Your Title");
+        try {
+            startActivityForResult(intent, req);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    "Sorry your device not supported",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case REQ_CODE: {
+            case REQ_CODE_SPEECH_INPUT1: {
                 if (resultCode == RESULT_OK && null != data) {
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                   mEditText.setText(result.get(0));
+                    mEditText1.setText(result.get(0));
                 }
+
                 break;
+            }
+                case REQ_CODE_SPEECH_INPUT2: {
+                    if (resultCode == RESULT_OK && null != data) {
+
+                        ArrayList<String> result = data
+                                .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                        mEditText.setText(result.get(0));
+                    }
+                    break;
+
+                }
             }
 
         }
-    }
-   
+
+
 
     /**
      * populateUI would be called to populate the UI when in update mode
@@ -219,6 +236,21 @@ public class AddEditTaskActivity extends AppCompatActivity {
         int priority = getPriorityFromViews();
         String tododa = eText.getText().toString();
         Date date = new Date();
+        if (title.isEmpty()) {
+            mEditText1.setError("Title required");
+            mEditText1.requestFocus();
+            return;
+        }
+        if (description.isEmpty()) {
+            mEditText.setError("Description required");
+            mEditText.requestFocus();
+            return;
+        }
+        if (tododa.isEmpty()) {
+            eText.setError("Date required");
+            eText.requestFocus();
+            return;
+        }
 
         TaskEntry todo = new TaskEntry(title,description,priority,tododa, date);
         if(mTaskId == DEFAULT_TASK_ID)
@@ -268,5 +300,38 @@ public class AddEditTaskActivity extends AppCompatActivity {
                 ((RadioGroup) findViewById(R.id.radioGroup)).check(R.id.radButton3);
         }
     }
+//set calendar
+      @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        now.set(Calendar.YEAR,year);
+        now.set(Calendar.MONTH,monthOfYear);
+        now.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+          eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+        picker1.show(getFragmentManager(),"Timepickerdialog");
+    }
+//set time
+    @Override
+    public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
+        now.set(Calendar.HOUR_OF_DAY,hourOfDay);
+        now.set(Calendar.MINUTE,minute);
+        now.set(Calendar.SECOND,second);
 
+
+
+
+        //initialize notification
+        NotifyMe notifyMe = new NotifyMe.Builder(getApplicationContext())
+                .title(mEditText1.getText().toString())
+                .content(mEditText.getText().toString())
+                .color(255,0,0,255)
+                .led_color(255,255,255,255)
+                .time(now)
+                .addAction(new Intent(), "Snooze" , false)
+                .key ("test")
+                .addAction(new Intent(),"Dismiss",true,false)
+                .addAction(new Intent(), "Done")
+                .large_icon(R.mipmap.ic_launcher_round)
+                .build();
+
+    }
 }

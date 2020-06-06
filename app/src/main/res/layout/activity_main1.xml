@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/jdt"
     tools:context="com.example.todouser.HomeActivity">
 
         <FrameLayout
@@ -20,14 +21,6 @@
             android:background="?android:attr/windowBackground"/>
 
 
-    <TextView
-        android:id="@+id/tvUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold" />
 
 
 

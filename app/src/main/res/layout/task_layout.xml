@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="130dp"
@@ -8,13 +10,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="8dp"
-    tools:context="com.example.todouser.fragments.ListFragment">
-
+     tools:context="com.example.todouser.fragments.ListFragment">
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="346dp"
         android:layout_height="120dp"
         android:layout_marginLeft="1dp"
         android:layout_weight="1"
+        android:background="#03A9F4"
         android:orientation="vertical">
 
         <TextView
@@ -23,6 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/primary_text_light"
+            android:textStyle="italic"
+            app:fontFamily="@font/carter_one"
             tools:text="Title" />
 
         <!-- TextView that displays the description -->
@@ -32,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/primary_text_light"
+            app:fontFamily="@font/actor"
             tools:text="Description" />
 
         <TextView
@@ -40,6 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/primary_text_light"
+            android:textStyle="bold"
+            app:fontFamily="monospace"
             tools:text="11/11/1111" />
         <!-- TextView that displays the update date -->
         <TextView
@@ -48,10 +58,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/primary_text_light"
+            android:textSize="14sp"
+            android:textStyle="italic"
             tools:text="11/11/1111" />
 
 
     </LinearLayout>
+</ScrollView>
 
     <!-- A priority circle that is colored in programmatically in the adapter code -->
     <TextView

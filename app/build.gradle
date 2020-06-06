@@ -42,6 +42,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.github.jakebonk:NotifyMe:1.0.1'
+    implementation 'com.wdullaer:materialdatetimepicker:3.6.0'
 
 
 
