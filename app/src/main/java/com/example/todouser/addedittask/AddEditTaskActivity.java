@@ -230,7 +230,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
      * It retrieves user input and inserts that new task data into the underlying database.
      */
     public void onSaveButtonClicked()  {
-        // Not yet implemented
+        // Not yet implementedgit checkout
         String title = mEditText1.getText().toString();
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
