@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.todouser.R;
 import com.example.todouser.addedittask.AddEditTaskActivity;
 import com.example.todouser.database.TaskEntry;
+import com.example.todouser.database.User;
 import com.example.todouser.tasks.TaskActivityViewModel;
 import com.example.todouser.tasks.TaskAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +27,7 @@ public class ListFragment extends Fragment implements TaskAdapter.ItemClickListe
     public ListFragment(){
         //
     }
-
+    private User user;
     // Member variables for the adapter and RecyclerView
     private RecyclerView mRecyclerView;
     private TaskAdapter mAdapter;
@@ -107,6 +108,7 @@ public class ListFragment extends Fragment implements TaskAdapter.ItemClickListe
    public void onItemClickListener(int itemId) {
         // Launch AddTaskActivity adding the itemId as an extra in the intent
         Intent intent = new Intent(getActivity(), AddEditTaskActivity.class);
+
         intent.putExtra(AddEditTaskActivity.EXTRA_TASK_ID, itemId);
         startActivity(intent);
     }

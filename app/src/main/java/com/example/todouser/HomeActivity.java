@@ -3,37 +3,24 @@ package com.example.todouser;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.Menu;
-
 import android.view.MenuItem;
-
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
-
-import com.example.todouser.database.TaskDao;
 import com.example.todouser.database.User;
-import com.example.todouser.database.UserDao;
-import com.example.todouser.fragments.*;
-
-
 import com.example.todouser.fragments.ListFragment;
-import com.example.todouser.tasks.TaskActivityViewModel;
+import com.example.todouser.fragments.NotificationFragment;
+import com.example.todouser.fragments.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     private TextView tvUser,et_email,count;
     private User user;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.nav_list:
-
+                            user = (User) getIntent().getSerializableExtra("User");
                             selectedFragment = new ListFragment();
 
 

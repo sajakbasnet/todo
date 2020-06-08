@@ -25,10 +25,17 @@ public interface TaskDao {
     @Delete
     void deleteTask(TaskEntry task);
 
-    @Query("Select * from task where id =:taskId")
+
+    @Query("Select * from task where taskid =:taskId")
     LiveData<TaskEntry> loadTAskById(int taskId);
 
     @Query("SELECT count(*) from task")
     LiveData<Integer> getCount();
+
+    @Query("Select * from User")
+    public List<UserAndTask> getUserTodo();
+
+
+
 
 }

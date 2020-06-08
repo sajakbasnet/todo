@@ -21,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText et_name, et_password, et_email, et_password1;
     String userName, password, pass1, email;
     private UserDao userDao;
+    long uid;
 
 
     @Override
@@ -46,17 +47,37 @@ public class RegisterActivity extends AppCompatActivity {
         userDao = Room.databaseBuilder(this, UserDatabase.class, "mi-database.db").allowMainThreadQueries()
                 .build().UserDao();
 
-        btn_register .setOnClickListener(new View.OnClickListener() {
+        btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userName = et_name.getText().toString();
                 password = et_password.getText().toString();
                 pass1 = et_password1.getText().toString();
                 email = et_email.getText().toString();
+                if (userName.isEmpty()) {
+                  et_name.setError("Username required");
+                    et_name.requestFocus();
+                    return;
+                }
+                if (email.isEmpty()) {
+                    et_email.setError("Email required");
+                    et_email.requestFocus();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    et_password.setError("Password required");
+                    et_password.requestFocus();
+                    return;
+                }
+                if (pass1.isEmpty()) {
+                    et_password1.setError("Re-Password  required");
+                    et_password1.requestFocus();
+                    return;
+                }
 
                 if (password.equals(pass1)) {
                     User user = new User(userName, password, email);
-                    userDao.insert(user);
+                   uid =  userDao.insert(user);
 
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);

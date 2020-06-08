@@ -7,7 +7,7 @@ import java.util.List;
 public class Repository {
 
 TaskDao dao;
-
+UserDao udao;
     public Repository(AppDatabase appDatabase){
        // dao = appDatabase.taskDao();
         dao=appDatabase.taskDao();
@@ -16,7 +16,6 @@ TaskDao dao;
     public LiveData<List<TaskEntry>> getTasks(){
        return dao.loadAllTasks();
     }
-
 
     public LiveData<TaskEntry> getTaskById(int taskId){
         return dao.loadTAskById(taskId);
@@ -51,5 +50,6 @@ TaskDao dao;
     public  LiveData<Integer> getCount() {
         return dao.getCount();
     }
+
 
 }

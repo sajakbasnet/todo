@@ -10,8 +10,10 @@ import java.util.Date;
 @Entity(tableName = "task")
 public class TaskEntry {
 
+
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int taskid;
+    public long id;
     private String title;
     private String description ;
     private int priority;
@@ -20,16 +22,7 @@ public class TaskEntry {
     private Date updatedAt;
 
     @Ignore
-    public TaskEntry(String title, String description, int priority, String tododa,Date updatedAt) {
-        this.title = title;
-        this.description = description;
-        this.priority = priority;
-        this.tododa = tododa;
-        this.updatedAt = updatedAt;
-    }
-
-    public TaskEntry(int id, String title, String description, int priority, String tododa,Date updatedAt) {
-
+         public TaskEntry(long id , String title, String description, int priority, String tododa,Date updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -38,10 +31,29 @@ public class TaskEntry {
         this.updatedAt = updatedAt;
     }
 
-    public int getId() {
+    public TaskEntry(int taskid,long id , String title, String description, int priority, String tododa,Date updatedAt) {
+
+        this.taskid = taskid;
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.tododa = tododa;
+        this.updatedAt = updatedAt;
+    }
+
+    public int getTaskid() {
+        return taskid;
+    }
+
+    public void setTaskid(int taskid) {
+        this.taskid = taskid;
+    }
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+
+    public void setId(long id) {
         this.id = id;
     }
 

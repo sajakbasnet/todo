@@ -1,16 +1,17 @@
 package com.example.todouser.database;
 
-import androidx.lifecycle.LiveData;
-import com.example.todouser.database.UserDao;
 public class UserRepository {
     UserDao dao;
     public UserRepository(UserDatabase userDatabase){   dao = userDatabase.UserDao();
     }
 
 
+    public User getUsers(){
+        return dao.loadAllUsers();
+    }
 
-    public LiveData<User> getUserBy(String username, String email){
-        return dao.loadUserBy(username, email);
+     public User loadUserBy(int id) {
+        return dao.loadUserBy(id);
     }
 
     public void update(final User user){

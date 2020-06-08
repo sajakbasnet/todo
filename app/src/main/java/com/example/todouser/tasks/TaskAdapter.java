@@ -169,7 +169,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         @Override
         public void onClick(View view) {
-            int elementId = mTaskEntries.get(getAdapterPosition()).getId();
+            int elementId = mTaskEntries.get(getAdapterPosition()).getTaskid();
             mItemClickListener.onItemClickListener(elementId);
         }
     }

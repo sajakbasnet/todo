@@ -1,4 +1,5 @@
 package com.example.todouser.addedittask;
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +12,20 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
 import com.allyants.notifyme.NotifyMe;
 import com.example.todouser.R;
+import com.example.todouser.database.Repository;
 import com.example.todouser.database.TaskEntry;
+import com.example.todouser.database.User;
+import com.example.todouser.database.UserViewModel;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -56,7 +63,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
     DatePickerDialog picker;
     TimePickerDialog picker1;
     AddEditTaskViewModel viewModel;
-
+UserViewModel usersview;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_task);
@@ -108,21 +115,21 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         mEditText = findViewById(R.id.editTextTaskDescription);
         tvw = (TextView) findViewById(R.id.textView1);
         eText = (EditText) findViewById(R.id.editText1);
-       eText.setInputType(InputType.TYPE_NULL);
+        eText.setInputType(InputType.TYPE_NULL);
 
-                picker = DatePickerDialog.newInstance(AddEditTaskActivity.this,
-                       now.get(Calendar.YEAR),
-                        now.get(Calendar.MONTH),
-                        now.get(Calendar.DAY_OF_MONTH)
+        picker = DatePickerDialog.newInstance(AddEditTaskActivity.this,
+                now.get(Calendar.YEAR),
+                now.get(Calendar.MONTH),
+                now.get(Calendar.DAY_OF_MONTH)
 
-                );
-                picker1 = TimePickerDialog.newInstance(AddEditTaskActivity.this,
-                        now.get(Calendar.HOUR_OF_DAY),
-                        now.get(Calendar.MINUTE),
-                        now.get(Calendar.SECOND),
-                        false
+        );
+        picker1 = TimePickerDialog.newInstance(AddEditTaskActivity.this,
+                now.get(Calendar.HOUR_OF_DAY),
+                now.get(Calendar.MINUTE),
+                now.get(Calendar.SECOND),
+                false
 
-                        );
+        );
 
 
 
@@ -140,13 +147,13 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         ImageView speak = findViewById(R.id.speak);
         ImageView speak1 = findViewById(R.id.speak1);
 
-       speak1.setOnClickListener(new View.OnClickListener() {
+        speak1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 promptSpeechInput(REQ_CODE_SPEECH_INPUT1);
             }
         });
-       speak.setOnClickListener(new View.OnClickListener() {
+        speak.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -193,19 +200,19 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
 
                 break;
             }
-                case REQ_CODE_SPEECH_INPUT2: {
-                    if (resultCode == RESULT_OK && null != data) {
+            case REQ_CODE_SPEECH_INPUT2: {
+                if (resultCode == RESULT_OK && null != data) {
 
-                        ArrayList<String> result = data
-                                .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                        mEditText.setText(result.get(0));
-                    }
-                    break;
-
+                    ArrayList<String> result = data
+                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    mEditText.setText(result.get(0));
                 }
-            }
+                break;
 
+            }
         }
+
+    }
 
 
 
@@ -218,6 +225,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         if(task == null){
             return;
         }
+
         mEditText1.setText(task.getTitle());
         mEditText.setText(task.getDescription());
         setPriorityInViews(task.getPriority());
@@ -230,7 +238,9 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
      * It retrieves user input and inserts that new task data into the underlying database.
      */
     public void onSaveButtonClicked()  {
-        // Not yet implemented
+
+
+
         String title = mEditText1.getText().toString();
         String description = mEditText.getText().toString();
         int priority = getPriorityFromViews();
@@ -252,11 +262,11 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
             return;
         }
 
-        TaskEntry todo = new TaskEntry(title,description,priority,tododa, date);
+        TaskEntry todo = new TaskEntry(id,title,description,priority,tododa, date);
         if(mTaskId == DEFAULT_TASK_ID)
             viewModel.insertTask(todo);
         else{
-            todo.setId(mTaskId);
+            todo.setTaskid(mTaskId);
             viewModel.updateTask(todo);
 
         }
@@ -300,16 +310,16 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
                 ((RadioGroup) findViewById(R.id.radioGroup)).check(R.id.radButton3);
         }
     }
-//set calendar
-      @Override
+    //set calendar
+    @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         now.set(Calendar.YEAR,year);
         now.set(Calendar.MONTH,monthOfYear);
         now.set(Calendar.DAY_OF_MONTH,dayOfMonth);
-          eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+        eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
         picker1.show(getFragmentManager(),"Timepickerdialog");
     }
-//set time
+    //set time
     @Override
     public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
         now.set(Calendar.HOUR_OF_DAY,hourOfDay);
