@@ -70,6 +70,27 @@
 
 <hr>
 
+## Features
+- user login
+- user description
+- swipe feature
+- calendar view
+- time notification
+- speech to text
+
+<hr>
+
+## Application Developemt 
+- Master
+- user_login branch
+- user_description branch
+- todo-list branch
+- speech_to_text branch
+- calendar_view brnach
+- time_notification branch
+- swipefeature branch
+
+
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
