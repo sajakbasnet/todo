@@ -1,9 +1,14 @@
-package com.example.todouser.tasks;
+package com.example.todouser.fragments;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -13,40 +18,56 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todouser.R;
 import com.example.todouser.addedittask.AddEditTaskActivity;
+import com.example.todouser.database.AppDatabase;
+import com.example.todouser.database.Repository;
+import com.example.todouser.database.TaskDao;
 import com.example.todouser.database.TaskEntry;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.todouser.tabviemodel.TaskActivityViewModelp1;
+import com.example.todouser.tasks.TaskAdapter;
 
 import java.util.List;
 
+public class priority1fragment extends Fragment implements TaskAdapter.ItemClickListener {
 
-public class TaskActivity extends AppCompatActivity implements TaskAdapter.ItemClickListener {
+    public priority1fragment(){
+        //
+    }
+    TaskDao td;
+    TaskEntry taskEntry;
+AppDatabase appdatabase;
+    Repository repo;
 
-    // Constant for logging
-    private static final String TAG = TaskActivity.class.getSimpleName();
-    // Member variables for the adapter and RecyclerView
     private RecyclerView mRecyclerView;
     private TaskAdapter mAdapter;
 
-TaskActivityViewModel viewModel;
+    TaskActivityViewModelp1 viewModel;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.pageone_fragment, container, false);
+    }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_list);
-        viewModel = ViewModelProviders.of(this).get(TaskActivityViewModel.class);
+        viewModel = ViewModelProviders.of(requireActivity()).get(TaskActivityViewModelp1.class);
 
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         // Set the RecyclerView to its corresponding view
-        mRecyclerView = findViewById(R.id.recyclerViewTasks);
+        mRecyclerView = getView().findViewById(R.id.recyclerViewTask);
+
+
+
 
         // Set the layout for the RecyclerView to be a linear layout, which measures and
         // positions items within a RecyclerView into a linear list
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // Initialize the adapter and attach it to the RecyclerView
-        mAdapter = new TaskAdapter(this, this);
+        mAdapter = new TaskAdapter(getContext(), this);
         mRecyclerView.setAdapter(mAdapter);
 
-        DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration decoration = new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(decoration);
 
         /*
@@ -75,31 +96,39 @@ TaskActivityViewModel viewModel;
          Set the Floating Action Button (FAB) to its corresponding View.
          Attach an OnClickListener to it, so that when it's clicked, a new intent will be created
          to launch the AddTaskActivity.
-         */
-        FloatingActionButton fabButton = findViewById(R.id.fab);
+
+        FloatingActionButton fabButton = getView().findViewById(R.id.fab);
 
         fabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create a new intent to start an AddTaskActivity
-                Intent addTaskIntent = new Intent(TaskActivity.this, AddEditTaskActivity.class);
+                Intent addTaskIntent = new Intent(getActivity(), AddEditTaskActivity.class);
                 startActivity(addTaskIntent);
             }
-        });
+        });*/
 
-        viewModel.getTasks().observe(this, new Observer<List<TaskEntry>>() {
-            @Override
-            public void onChanged(List<TaskEntry> taskEntries) {
-                mAdapter.setTasks(taskEntries);
-            }
-        });
+
+
+            viewModel.getTaskByPriority().observe(getActivity(), new Observer<List<TaskEntry>>() {
+                @Override
+                public void onChanged(List<TaskEntry> taskEntries) {
+
+                    mAdapter.setTasks(taskEntries);
+                }
+
+            });
+
+
     }
 
-    @Override
+
     public void onItemClickListener(int itemId) {
         // Launch AddTaskActivity adding the itemId as an extra in the intent
-        Intent intent = new Intent(TaskActivity.this, AddEditTaskActivity.class);
+        Intent intent = new Intent(getActivity(), AddEditTaskActivity.class);
         intent.putExtra(AddEditTaskActivity.EXTRA_TASK_ID, itemId);
         startActivity(intent);
     }
 }
+
+

@@ -1,4 +1,4 @@
-package com.example.todouser.tasks;
+package com.example.todouser.tabviemodel;
 
 import android.app.Application;
 
@@ -11,7 +11,7 @@ import com.example.todouser.database.TaskEntry;
 
 import java.util.List;
 
-public class TaskActivityViewModel extends AndroidViewModel {
+public class TaskActivityViewModelp1 extends AndroidViewModel {
 
     Repository repository;
 
@@ -19,27 +19,20 @@ public class TaskActivityViewModel extends AndroidViewModel {
 
 
 
-    public TaskActivityViewModel(Application application){
+    public TaskActivityViewModelp1(Application application){
         super(application);
         AppDatabase database = AppDatabase.getInstance(application);
         repository = new Repository(database);
-        tasks = repository.getTasks();
+        tasks = repository.getTaskByPriority();
     }
 
-    public LiveData<List<TaskEntry>> getTasks(){
-        return tasks;
-    }
+
     public  LiveData<List<TaskEntry>> getTaskByPriority(){
         return tasks;
     }
 
     public void deleteTask(TaskEntry task){
         repository.deleteTask(task);
-    }
-
-
-    public LiveData<Integer> getCount() {
-        return repository.getCount();
     }
 
 

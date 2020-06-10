@@ -27,8 +27,4 @@ public interface UserDao {
     @Query("SELECT * FROM User WHERE username = :username and email = :email")
     LiveData<User> loadUserBy(String username , String email);
 
-
-
-
-
 }

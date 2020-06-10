@@ -7,11 +7,19 @@
     android:background="@drawable/jdt"
     tools:context="com.example.todouser.HomeActivity">
 
+
+
+
+
+
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/bottom_navigation"/>
+            android:layout_above="@id/bottom_navigation">
+
+        </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"

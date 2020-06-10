@@ -28,7 +28,14 @@ public interface TaskDao {
     @Query("Select * from task where id =:taskId")
     LiveData<TaskEntry> loadTAskById(int taskId);
 
-    @Query("SELECT count(*) from task")
+    @Query("Select * from task where priority = 1")
+    LiveData<List<TaskEntry>> loadTaskByPriority();
+    @Query("Select * from task where priority = 2")
+    LiveData<List<TaskEntry>> loadTaskByPriority2();
+    @Query("Select * from task where priority = 3")
+    LiveData<List<TaskEntry>> loadTaskByPriority3();
+
+    @Query("SELECT COUNT(*) FROM task")
     LiveData<Integer> getCount();
 
 }

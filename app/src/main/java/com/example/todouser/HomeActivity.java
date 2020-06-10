@@ -3,34 +3,26 @@ package com.example.todouser;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.Menu;
-
 import android.view.MenuItem;
-
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 
-
-import com.example.todouser.database.TaskDao;
+import com.example.todouser.database.TaskEntry;
 import com.example.todouser.database.User;
-import com.example.todouser.database.UserDao;
-import com.example.todouser.fragments.*;
-
-
 import com.example.todouser.fragments.ListFragment;
-import com.example.todouser.tasks.TaskActivityViewModel;
+import com.example.todouser.fragments.MyFragment;
+import com.example.todouser.fragments.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     private TextView tvUser,et_email,count;
     private User user;
+    private TaskEntry task;
 
 
 
@@ -38,9 +30,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-
-
-
 
 
       /*  user = (User) getIntent().getSerializableExtra("User");
@@ -57,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
                     new ListFragment()).commit();
         }
     }
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -64,17 +54,16 @@ public class HomeActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.nav_list:
-
                             selectedFragment = new ListFragment();
-
 
                             break;
                         case R.id.nav_profile:
                             user = (User) getIntent().getSerializableExtra("User");
+                            task = (TaskEntry) getIntent().getSerializableExtra("todolists");
                             selectedFragment = new UserFragment();
                             break;
                         case R.id.nav_notification:
-                            selectedFragment = new NotificationFragment();
+                            selectedFragment = new MyFragment();
                             break;
 
 
@@ -100,7 +89,10 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent i = new Intent(getApplicationContext(),
                                 MainActivity.class);
+                       i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                         startActivity(i);
+                        finish();
                     }
                 });
         builder.setNegativeButton("No",
@@ -118,6 +110,9 @@ public class HomeActivity extends AppCompatActivity {
 
             case R.id.logout:
                 logout();
+
+
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

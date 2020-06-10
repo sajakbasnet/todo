@@ -100,12 +100,14 @@ public class ListFragment extends Fragment implements TaskAdapter.ItemClickListe
         @Override
         public void onChanged(List<TaskEntry> taskEntries) {
             mAdapter.setTasks(taskEntries);
+
         }
     });
 }
 
    public void onItemClickListener(int itemId) {
         // Launch AddTaskActivity adding the itemId as an extra in the intent
+
         Intent intent = new Intent(getActivity(), AddEditTaskActivity.class);
         intent.putExtra(AddEditTaskActivity.EXTRA_TASK_ID, itemId);
         startActivity(intent);

@@ -22,6 +22,18 @@ TaskDao dao;
         return dao.loadTAskById(taskId);
     }
 
+    public  LiveData<List<TaskEntry>> getTaskByPriority (){
+        return dao.loadTaskByPriority();
+    }
+    public  LiveData<List<TaskEntry>> getTaskByPriority2 (){
+        return dao.loadTaskByPriority2();
+    }
+    public  LiveData<List<TaskEntry>> getTaskByPriority3 (){
+        return dao.loadTaskByPriority3();
+    }
+
+
+
     public void updateTask(final TaskEntry task){
         AppDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
@@ -48,7 +60,7 @@ TaskDao dao;
             }
         });
     }
-    public  LiveData<Integer> getCount() {
+    public LiveData<Integer> getCount() {
         return dao.getCount();
     }
 

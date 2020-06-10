@@ -11,5 +11,5 @@
     <item
         android:id="@+id/nav_notification"
         android:icon="@drawable/ic_textsms_black_24dp"
-        android:title="Notification" />
+        android:title="Priority" />
 </menu>
