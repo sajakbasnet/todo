@@ -90,6 +90,38 @@
 - time_notification branch
 - swipefeature branch
 
+<hr>
+
+## References for the project
+
+All list of modules that has been used for completion of this project
+
+1. Defining data using Room entities : 'https://developer.android.com/training/data-storage/room/defining-data'
+
+2. Entity : 'https://developer.android.com/reference/android/arch/persistence/room/Entity'
+
+3. Accessing data using Room DAOs : 'https://developer.android.com/training/data-storage/room/accessing-data'
+
+4. Database : 'https://developer.android.com/reference/android/arch/persistence/room/Database'
+
+5. Write and View Logs with Logcat : 'https://developer.android.com/studio/debug/am-logcat'
+
+6. Menus : 'https://developer.android.com/guide/topics/ui/menus'
+
+7. Android: Navigation Drawer : 'https://medium.com/quick-code/android-navigation-drawer-e80f7fc2594f'
+
+8. Create views into a database : 'https://developer.android.com/training/data-storage/room/creating-views'
+
+9. Query : 'https://developer.android.com/reference/android/arch/persistence/room/Query'
+
+10. Pass data between fragments : 'https://developer.android.com/training/basics/fragments/pass-data-between'
+
+11. Calendar.Builder : 'https://developer.android.com/reference/java/util/Calendar.Builder'
+
+12. Android Speech to Text Tutorial : 'https://www.simplifiedcoding.net/android-speech-to-text-tutorial/'
+
+<hr>
+
 
 ## License
 
