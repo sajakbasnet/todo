@@ -96,29 +96,31 @@
 
 All list of modules that has been used for completion of this project
 
-1. Defining data using Room entities : 'https://developer.android.com/training/data-storage/room/defining-data'
+<i>1. Defining data using Room entities : 'https://developer.android.com/training/data-storage/room/defining-data'</i>
 
-2. Entity : 'https://developer.android.com/reference/android/arch/persistence/room/Entity'
+<i>2. Entity : 'https://developer.android.com/reference/android/arch/persistence/room/Entity'</i>
 
-3. Accessing data using Room DAOs : 'https://developer.android.com/training/data-storage/room/accessing-data'
+<i>3. Accessing data using Room DAOs : 'https://developer.android.com/training/data-storage/room/accessing-data'</i>
 
-4. Database : 'https://developer.android.com/reference/android/arch/persistence/room/Database'
+<i>4. Database : 'https://developer.android.com/reference/android/arch/persistence/room/Database'</i>
 
-5. Write and View Logs with Logcat : 'https://developer.android.com/studio/debug/am-logcat'
+<i>5. Write and View Logs with Logcat : 'https://developer.android.com/studio/debug/am-logcat'</i>
 
-6. Menus : 'https://developer.android.com/guide/topics/ui/menus'
+<i>6. Menus : 'https://developer.android.com/guide/topics/ui/menus'</i>
 
-7. Android: Navigation Drawer : 'https://medium.com/quick-code/android-navigation-drawer-e80f7fc2594f'
+<i>7. Android: Navigation Drawer : 'https://medium.com/quick-code/android-navigation-drawer-e80f7fc2594f'</i>
 
-8. Create views into a database : 'https://developer.android.com/training/data-storage/room/creating-views'
+<i>8. Create views into a database : 'https://developer.android.com/training/data-storage/room/creating-views'</i>
 
-9. Query : 'https://developer.android.com/reference/android/arch/persistence/room/Query'
+<i>9. Query : 'https://developer.android.com/reference/android/arch/persistence/room/Query'</i>
 
-10. Pass data between fragments : 'https://developer.android.com/training/basics/fragments/pass-data-between'
+<i>10. Pass data between fragments : 'https://developer.android.com/training/basics/fragments/pass-data-between'</i>
 
-11. Calendar.Builder : 'https://developer.android.com/reference/java/util/Calendar.Builder'
+<i>11. Calendar.Builder : 'https://developer.android.com/reference/java/util/Calendar.Builder'</i>
 
-12. Android Speech to Text Tutorial : 'https://www.simplifiedcoding.net/android-speech-to-text-tutorial/'
+<i>12. Android Speech to Text Tutorial : 'https://www.simplifiedcoding.net/android-speech-to-text-tutorial/'</i>
+
+<i>13. Widget : 'https://developer.android.com/reference/android/support/v7/widget/package-summary' </i>
 
 <hr>
 
