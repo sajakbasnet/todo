@@ -102,7 +102,7 @@ Calendar     |
 
 Time Set        |  Notification                   |
 :----------------------------:|:--------------------------------------:|
-<img src = "time.jpg" width="200" height="360">  |  <img src = "notification" width="200" height="360">   
+<img src = "time.jpg" width="200" height="360">  |  <img src = "notification.jpg" width="200" height="360">   
 
 - speech to text
 
