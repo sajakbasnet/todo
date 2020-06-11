@@ -53,6 +53,26 @@ public class RegisterActivity extends AppCompatActivity {
                 password = et_password.getText().toString();
                 pass1 = et_password1.getText().toString();
                 email = et_email.getText().toString();
+                if (userName.isEmpty()) {
+                    et_name.setError("Username required");
+                    et_name.requestFocus();
+                    return;
+                }
+                if (email.isEmpty()) {
+                    et_email.setError("Email required");
+                    et_email.requestFocus();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    et_password.setError("Password required");
+                    et_password.requestFocus();
+                    return;
+                }
+                if (pass1.isEmpty()) {
+                    et_password1.setError("Re-Password  required");
+                    et_password1.requestFocus();
+                    return;
+                }
 
                 if (password.equals(pass1)) {
                     User user = new User(userName, password, email);

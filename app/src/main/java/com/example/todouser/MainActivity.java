@@ -1,15 +1,13 @@
 package com.example.todouser;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 import com.example.todouser.database.User;
-
 import com.example.todouser.database.UserDao;
 import com.example.todouser.database.UserDatabase;
 
@@ -45,6 +43,17 @@ public class MainActivity extends AppCompatActivity  {
                 String password = et_password.getText().toString().trim();
 
                 User user = db.getUser(email, password);
+
+                if (email.isEmpty()) {
+                    et_email.setError("Email required");
+                    et_email.requestFocus();
+                    return;
+                }
+                if (password.isEmpty()) {
+                    et_password.setError("Password required");
+                    et_password.requestFocus();
+                    return;
+                }
                 if (user != null) {
                     Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     i.putExtra("User", user);
