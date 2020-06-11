@@ -92,6 +92,8 @@
 
 <hr>
 
+<img src="![Screenshot](cricket.png)" height ="700" width="600"/>
+
 ## References for the project
 
 All list of modules that has been used for completion of this project
