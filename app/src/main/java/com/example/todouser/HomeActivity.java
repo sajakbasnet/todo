@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -14,13 +13,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.todouser.database.TaskEntry;
 import com.example.todouser.database.User;
-import com.example.todouser.fragments.ListFragment;
 import com.example.todouser.fragments.HomeFragment;
+import com.example.todouser.fragments.ListFragment;
 import com.example.todouser.fragments.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
-    private TextView tvUser,et_email,count;
+
     private User user;
     private TaskEntry task;
 
@@ -30,13 +29,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-
-
-      /*  user = (User) getIntent().getSerializableExtra("User");
-        tvUser = findViewById(R.id.tvUser);
-        if (user != null) {
-            tvUser.setText(user.getUserName());
-        }*/
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
