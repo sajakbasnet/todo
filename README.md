@@ -92,7 +92,7 @@
 
 <hr>
 
-<img src="![Screenshot](cricket.png)" height ="700" width="600"/>
+<img src="branch.jpg" height ="700" width="600"/>
 
 ## References for the project
 
