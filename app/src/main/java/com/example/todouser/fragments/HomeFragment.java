@@ -13,15 +13,15 @@ import com.example.todouser.adapter.PageAdapter;
 import com.example.todouser.R;
 import com.google.android.material.tabs.TabLayout;
 
-public class MyFragment extends Fragment {
+public class HomeFragment extends Fragment {
     View myFragment;
 
     ViewPager viewPager;
     TabLayout tabLayout;
 
-    public MyFragment() {
+    public HomeFragment() {
     }
-    public  static MyFragment getInstance(){return new MyFragment();}
+    public  static HomeFragment getInstance(){return new HomeFragment();}
 
     @Override
     public void onCreate(Bundle instance) {

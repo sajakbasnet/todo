@@ -58,15 +58,21 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         return new TaskViewHolder(view);
     }
-
+    public TaskEntry getItem(int position) {
+        return mTaskEntries.get(position);
+    }
     /**
      * Called by the RecyclerView to display data at a specified position in the Cursor.
      *
      * @param holder   The ViewHolder to bind Cursor data to
      * @param position The position of the data in the Cursor
      */
+
     @Override
+
     public void onBindViewHolder(TaskViewHolder holder, int position) {
+
+
         // Determine the values of the wanted data
         TaskEntry taskEntry = mTaskEntries.get(position);
         String title = taskEntry.getTitle();

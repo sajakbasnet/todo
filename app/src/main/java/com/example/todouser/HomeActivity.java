@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import com.example.todouser.database.TaskEntry;
 import com.example.todouser.database.User;
 import com.example.todouser.fragments.ListFragment;
-import com.example.todouser.fragments.MyFragment;
+import com.example.todouser.fragments.HomeFragment;
 import com.example.todouser.fragments.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -63,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
                             selectedFragment = new UserFragment();
                             break;
                         case R.id.nav_notification:
-                            selectedFragment = new MyFragment();
+                            selectedFragment = new HomeFragment();
                             break;
 
 
@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent i = new Intent(getApplicationContext(),
                                 MainActivity.class);
-                       i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                         startActivity(i);
                         finish();

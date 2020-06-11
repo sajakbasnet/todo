@@ -12,22 +12,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.todouser.R;
-import com.example.todouser.database.AppDatabase;
-import com.example.todouser.database.Repository;
-import com.example.todouser.database.TaskDao;
-import com.example.todouser.database.TaskEntry;
 import com.example.todouser.database.User;
 import com.example.todouser.tasks.TaskActivityViewModel;
 
 public class UserFragment extends Fragment {
 
-    private User user;
-    TaskDao task;
-    TaskEntry te;
-    AppDatabase ad;
-    Repository repo;
-    TextView tvUser,et_email,tvUsers,count;
-  TaskActivityViewModel taskActivitymodel;
+     private User user;
+     TextView tvUser,et_email,tvUsers,count;
+      TaskActivityViewModel taskActivitymodel;
 
 
     public void onCreate(Bundle savedInstanceState) {
