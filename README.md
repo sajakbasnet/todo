@@ -92,7 +92,9 @@
 
 <hr>
 
-<img src="branch.jpg" height ="700" width="600"/>
+<img src="branch.jpg" height ="100%" width="100%"/>
+
+<hr>
 
 ## References for the project
 
