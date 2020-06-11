@@ -149,6 +149,21 @@ Finally, the view role in this pattern is to observe (or subscribe to) a ViewMod
   
 <img src="mvvm.png" height ="100%" width="100%"/>
 
+<hr>
+
+### Architechture
+
+#### 1. Activity
+An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI with setContentView(View). While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows (via a theme with R.attr.windowIsFloating set), Multi-Window mode or embedded into other windows. There are two methods almost all subclasses of Activity will implement: 
+
+ - onCreate(Bundle) is where you initialize your activity. Most importantly, here you will usually call setContentView(int) with a layout resource defining your UI, and using findViewById(int) to retrieve the widgets in that UI that you need to interact with programmatically. 
+ 
+ - onPause() is where you deal with the user pausing active interaction with the activity. Any changes made by the user should at this point be committed (usually to the ContentProvider holding the data). In this state the activity is still visible on screen. 
+
+<img src="statepath.png" height ="100%" width="100%"/>
+Fig: StatePaths of an Activity
+
+
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
