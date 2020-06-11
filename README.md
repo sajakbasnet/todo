@@ -160,9 +160,36 @@ An activity is a single, focused thing that the user can do. Almost all activiti
  
  - onPause() is where you deal with the user pausing active interaction with the activity. Any changes made by the user should at this point be committed (usually to the ContentProvider holding the data). In this state the activity is still visible on screen. 
 
-<img src="statepath.png" height ="100%" width="100%"/>
+<img src="statepath.png" height ="50%" width="50%"/>
 Fig: StatePaths of an Activity
 
+#### 2. Fragment
+A Fragment represents a behavior or a portion of user interface in a FragmentActivity. You can combine multiple fragments in a single activity to build a multi-pane UI and reuse a fragment in multiple activities. You can think of a fragment as a modular section of an activity, which has its own lifecycle, receives its own input events, and which you can add or remove while the activity is running (sort of like a "sub activity" that you can reuse in different activities).
+
+A fragment must always be hosted in an activity and the fragment's lifecycle is directly affected by the host activity's lifecycle. For example, when the activity is paused, so are all fragments in it, and when the activity is destroyed, so are all fragments. However, while an activity is running (it is in the resumed lifecycle state), you can manipulate each fragment independently, such as add or remove them. When you perform such a fragment transaction, you can also add it to a back stack that's managed by the activity—each back stack entry in the activity is a record of the fragment transaction that occurred. The back stack allows the user to reverse a fragment transaction (navigate backwards), by pressing the Back button.
+
+<img src="fragment.png" height ="40%" width="50%"/>
+
+#### 3. Adapter
+Android’s Adapter is described in the API documentation, as “a bridge between an AdapterView and the underlying data for that view” .  An AdapterView is a group of widgets (aka view) components in Android that include the ListView, Spinner, and GridView.  In general, these are the widgets that provide the selecting capability in the user interface .  What is not mentioned in the documentation is that the AdapterView also provides the layout of the underlying data for the view.  The AdapterView really brings together the data and the layout (potentially in a complex collection of views) for each of the rows that make up the AdapterView.
+
+<img src="adapter.png" height ="100%" width="100%"/>
+
+#### 4. DAO(Data Access Object)
+ Data Access Objects are the main classes where you define your database interactions. They can include a variety of query methods.
+
+The class marked with @Dao should either be an interface or an abstract class. At compile time, Room will generate an implementation of this class when it is referenced by a Database.
+
+An abstract @Dao class can optionally have a constructor that takes a Database as its only parameter.
+
+It is recommended to have multiple Dao classes in your codebase depending on the tables they touch.
+
+#### 5. ROOM
+The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
+
+The library helps you create a cache of your app's data on a device that's running your app. This cache, which serves as your app's single source of truth, allows users to view a consistent copy of key information within your app, regardless of whether users have an internet connection.
+
+To use Room in your app, add the following dependencies to your app's build.gradle file:
 
 ## License
 
