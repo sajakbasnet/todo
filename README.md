@@ -77,7 +77,7 @@
 
 Login         |  Register                     |
 :----------------------------:|:--------------------------------------:|
-<img src = "login.jpg" width="200" height="360">  |  <img src = "register" width="200" height="360">        
+<img src = "login.jpg" width="200" height="360">  |  <img src = "register.jpg" width="200" height="360">        
 
 - user description
 
@@ -102,13 +102,13 @@ Calendar     |
 
 Time Set        |  Notification                   |
 :----------------------------:|:--------------------------------------:|
-<img src = "time.jpg" width="200" height="360">  |  <img src = "notificationr" width="200" height="360">   
+<img src = "time.jpg" width="200" height="360">  |  <img src = "notification" width="200" height="360">   
 
 - speech to text
 
 Speech        |  To Text                  |
 :----------------------------:|:--------------------------------------:|
-<img src = "speech.jpg" width="200" height="360">  |  <img src = "totext" width="200" height="360">   
+<img src = "speech.jpg" width="200" height="360">  |  <img src = "totext.jpg" width="200" height="360">   
 
 <hr>
 
