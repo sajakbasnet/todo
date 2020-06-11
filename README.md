@@ -83,7 +83,7 @@ Login         |  Register                     |
 
 Description       |                      
 :----------------------------:|
-<img src = "login.jpg" width="200" height="360">  |  
+<img src = "description.jpg" width="200" height="360">  |  
 
 - swipe feature
 
