@@ -72,12 +72,43 @@
 <hr>
 
 ## Features
+
 - user login
+
+Login         |  Register                     |
+:----------------------------:|:--------------------------------------:|
+<img src = "login.jpg" width="200" height="360">  |  <img src = "register" width="200" height="360">        
+
 - user description
+
+Description       |                      
+:----------------------------:|
+<img src = "login.jpg" width="200" height="360">  |  
+
 - swipe feature
+
+Swipe      |                      
+:----------------------------:|
+<img src = "swipe.jpg" width="200" height="360">  | 
+
 - calendar view
+
+Calendar     |                      
+:----------------------------:|
+<img src = "calendar.jpg" width="200" height="360">  | 
+
+
 - time notification
+
+Time Set        |  Notification                   |
+:----------------------------:|:--------------------------------------:|
+<img src = "time.jpg" width="200" height="360">  |  <img src = "notificationr" width="200" height="360">   
+
 - speech to text
+
+Speech        |  To Text                  |
+:----------------------------:|:--------------------------------------:|
+<img src = "speech.jpg" width="200" height="360">  |  <img src = "totext" width="200" height="360">   
 
 <hr>
 
