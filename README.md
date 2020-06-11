@@ -94,37 +94,7 @@
 
 <img src="branch.jpg" height ="100%" width="100%"/>
 
-<hr>
 
-## References for the project
-
-All list of modules that has been used for completion of this project
-
-<i>1. Defining data using Room entities : 'https://developer.android.com/training/data-storage/room/defining-data'</i>
-
-<i>2. Entity : 'https://developer.android.com/reference/android/arch/persistence/room/Entity'</i>
-
-<i>3. Accessing data using Room DAOs : 'https://developer.android.com/training/data-storage/room/accessing-data'</i>
-
-<i>4. Database : 'https://developer.android.com/reference/android/arch/persistence/room/Database'</i>
-
-<i>5. Write and View Logs with Logcat : 'https://developer.android.com/studio/debug/am-logcat'</i>
-
-<i>6. Menus : 'https://developer.android.com/guide/topics/ui/menus'</i>
-
-<i>7. Android: Navigation Drawer : 'https://medium.com/quick-code/android-navigation-drawer-e80f7fc2594f'</i>
-
-<i>8. Create views into a database : 'https://developer.android.com/training/data-storage/room/creating-views'</i>
-
-<i>9. Query : 'https://developer.android.com/reference/android/arch/persistence/room/Query'</i>
-
-<i>10. Pass data between fragments : 'https://developer.android.com/training/basics/fragments/pass-data-between'</i>
-
-<i>11. Calendar.Builder : 'https://developer.android.com/reference/java/util/Calendar.Builder'</i>
-
-<i>12. Android Speech to Text Tutorial : 'https://www.simplifiedcoding.net/android-speech-to-text-tutorial/'</i>
-
-<i>13. Widget : 'https://developer.android.com/reference/android/support/v7/widget/package-summary' </i>
 
 <hr>
 
@@ -190,6 +160,42 @@ The Room persistence library provides an abstraction layer over SQLite to allow 
 The library helps you create a cache of your app's data on a device that's running your app. This cache, which serves as your app's single source of truth, allows users to view a consistent copy of key information within your app, regardless of whether users have an internet connection.
 
 To use Room in your app, add the following dependencies to your app's build.gradle file:
+
+<hr>
+
+## References for the project
+
+All list of modules that has been used for completion of this project
+
+<i>1. Defining data using Room entities : 'https://developer.android.com/training/data-storage/room/defining-data'</i>
+
+<i>2. Entity : 'https://developer.android.com/reference/android/arch/persistence/room/Entity'</i>
+
+<i>3. Accessing data using Room DAOs : 'https://developer.android.com/training/data-storage/room/accessing-data'</i>
+
+<i>4. Database : 'https://developer.android.com/reference/android/arch/persistence/room/Database'</i>
+
+<i>5. Write and View Logs with Logcat : 'https://developer.android.com/studio/debug/am-logcat'</i>
+
+<i>6. Menus : 'https://developer.android.com/guide/topics/ui/menus'</i>
+
+<i>7. Android: Navigation Drawer : 'https://medium.com/quick-code/android-navigation-drawer-e80f7fc2594f'</i>
+
+<i>8. Create views into a database : 'https://developer.android.com/training/data-storage/room/creating-views'</i>
+
+<i>9. Query : 'https://developer.android.com/reference/android/arch/persistence/room/Query'</i>
+
+<i>10. Pass data between fragments : 'https://developer.android.com/training/basics/fragments/pass-data-between'</i>
+
+<i>11. Calendar.Builder : 'https://developer.android.com/reference/java/util/Calendar.Builder'</i>
+
+<i>12. Android Speech to Text Tutorial : 'https://www.simplifiedcoding.net/android-speech-to-text-tutorial/'</i>
+
+<i>13. Widget : 'https://developer.android.com/reference/android/support/v7/widget/package-summary' </i>
+
+<i>14. Android Adapters (and AdapterViews) : 'https://www.intertech.com/Blog/android-adapters-adapterviews/' </i>
+
+<i>15. MVVM architecture : 'https://proandroiddev.com/mvvm-architecture-viewmodel-and-livedata-part-1-604f50cda1' </i>
 
 ## License
 
