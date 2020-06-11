@@ -146,7 +146,8 @@ One of the important implementation strategies of this layer is to decouple it f
 #### 3. View
 
 Finally, the view role in this pattern is to observe (or subscribe to) a ViewModel observable to get data in order to update UI elements accordingly.
-   
+  
+<img src="mvvm.png" height ="100%" width="100%"/>
 
 ## License
 
