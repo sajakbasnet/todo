@@ -18,9 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todouser.R;
 import com.example.todouser.addedittask.AddEditTaskActivity;
-import com.example.todouser.database.AppDatabase;
-import com.example.todouser.database.Repository;
-import com.example.todouser.database.TaskDao;
 import com.example.todouser.database.TaskEntry;
 import com.example.todouser.tabviemodel.TaskActivityViewModelp1;
 import com.example.todouser.tasks.TaskAdapter;
@@ -32,10 +29,7 @@ public class priority1fragment extends Fragment implements TaskAdapter.ItemClick
     public priority1fragment(){
         //
     }
-    TaskDao td;
-    TaskEntry taskEntry;
-AppDatabase appdatabase;
-    Repository repo;
+
 
     private RecyclerView mRecyclerView;
     private TaskAdapter mAdapter;
