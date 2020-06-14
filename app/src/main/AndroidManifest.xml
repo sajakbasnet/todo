@@ -13,16 +13,21 @@
         <activity
             android:name=".addedittask.AddEditTaskActivity"
             android:label="Add a new Task" />
-        <activity android:name=".tasks.TaskActivity"/>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".RegisterActivity" />
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".tasks.TaskActivity"/>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme">
+
         </activity>
         <receiver android:name="com.allyants.notifyme.NotificationPublisher" />
         <receiver android:name="com.allyants.notifyme.BootNotifyMe">
