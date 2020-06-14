@@ -121,6 +121,7 @@ Speech        |  To Text                  |
 - calendar_view brnach
 - time_notification branch
 - swipefeature branch
+- splash branch
 
 <hr>
 
