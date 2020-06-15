@@ -78,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     Intent moveToLogin = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(moveToLogin);
+                    finish();
 
                 } else {
                     Toast.makeText(RegisterActivity.this, "Password is not matching", Toast.LENGTH_SHORT).show();
