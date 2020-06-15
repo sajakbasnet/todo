@@ -159,7 +159,9 @@ public class AddEditTaskActivity extends AppCompatActivity implements DatePicker
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(getApplicationContext(),
+                        "Task Added",
+                        Toast.LENGTH_SHORT).show();
                 onSaveButtonClicked();
             }
         });
