@@ -112,13 +112,13 @@ Speech        |  To Text                  |
 
 <hr>
 
-## Application Developemt 
+## Application Development 
 - Master
 - user_login branch
 - user_description branch
 - todo-list branch
 - speech_to_text branch
-- calendar_view brnach
+- calendar_view branch
 - time_notification branch
 - swipefeature branch
 - splash branch
