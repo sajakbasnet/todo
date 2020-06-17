@@ -124,7 +124,7 @@ Email Required       |         Password required            |
 
 Username Required      |  Password not matching                 |
 :----------------------------:|:--------------------------------------:|
-<img src = "Screenshot/usernameregister.jpg" width="200" height="360">  |  <img src = "Screenshot/notregister.jpg" width="200" height="360">  
+<img src = "Screenshot/uernameregister.jpg" width="200" height="360">  |  <img src = "Screenshot/notregister.jpg" width="200" height="360">  
 
 - Task Added
 
@@ -149,7 +149,7 @@ Task Validation    |
 
 <hr>
 
-<img src="branch.jpg" height ="100%" width="100%"/>
+<img src="Screenshot/branch.jpg" height ="100%" width="100%"/>
 
 
 
@@ -174,7 +174,7 @@ One of the important implementation strategies of this layer is to decouple it f
 
 Finally, the view role in this pattern is to observe (or subscribe to) a ViewModel observable to get data in order to update UI elements accordingly.
   
-<img src="mvvm.png" height ="100%" width="100%"/>
+<img src="Screenshot/mvvm.png" height ="100%" width="100%"/>
 
 <hr>
 
@@ -187,7 +187,7 @@ An activity is a single, focused thing that the user can do. Almost all activiti
  
  - onPause() is where you deal with the user pausing active interaction with the activity. Any changes made by the user should at this point be committed (usually to the ContentProvider holding the data). In this state the activity is still visible on screen. 
 
-<img src="statepath.png" height ="50%" width="50%"/>
+<img src="Screenshot/statepath.png" height ="50%" width="50%"/>
 Fig: StatePaths of an Activity
 
 #### 2. Fragment
@@ -195,12 +195,12 @@ A Fragment represents a behavior or a portion of user interface in a FragmentAct
 
 A fragment must always be hosted in an activity and the fragment's lifecycle is directly affected by the host activity's lifecycle. For example, when the activity is paused, so are all fragments in it, and when the activity is destroyed, so are all fragments. However, while an activity is running (it is in the resumed lifecycle state), you can manipulate each fragment independently, such as add or remove them. When you perform such a fragment transaction, you can also add it to a back stack that's managed by the activity—each back stack entry in the activity is a record of the fragment transaction that occurred. The back stack allows the user to reverse a fragment transaction (navigate backwards), by pressing the Back button.
 
-<img src="fragment.png" height ="40%" width="50%"/>
+<img src="Screenshot/fragment.png" height ="40%" width="50%"/>
 
 #### 3. Adapter
 Android’s Adapter is described in the API documentation, as “a bridge between an AdapterView and the underlying data for that view” .  An AdapterView is a group of widgets (aka view) components in Android that include the ListView, Spinner, and GridView.  In general, these are the widgets that provide the selecting capability in the user interface .  What is not mentioned in the documentation is that the AdapterView also provides the layout of the underlying data for the view.  The AdapterView really brings together the data and the layout (potentially in a complex collection of views) for each of the rows that make up the AdapterView.
 
-<img src="adapter.png" height ="100%" width="100%"/>
+<img src="Screenshot/adapter.png" height ="100%" width="100%"/>
 
 #### 4. DAO(Data Access Object)
  Data Access Objects are the main classes where you define your database interactions. They can include a variety of query methods.
