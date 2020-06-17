@@ -122,9 +122,9 @@ Bottom Navigation       |  Options Menu                  |
 
 - User login
 
-Email Required       |         Password required            |
-:----------------------------:|:--------------------------------------:|
-<img src = "Screenshot/loginval.jpg" width="200" height="360">  |  <img src = "Screenshot/passval.jpg" width="200" height="360">    
+Email Required       |         Password required            | User Not Registered    |
+:----------------------------:|:--------------------------------------:|:--------------------------------------:|
+<img src = "Screenshot/loginval.jpg" width="200" height="360">  |  <img src = "Screenshot/passval.jpg" width="200" height="360">    | <img src = "Screenshot/didnotmacth.jpg" width="200" height="360">
 
 - Register 
 
