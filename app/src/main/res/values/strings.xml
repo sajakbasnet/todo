@@ -2,39 +2,16 @@
     <string name="app_name">Todo App</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="swipe_left_for_register">Swipe Left for Register</string>
-    <string name="login">Login</string>
+
     <string name="password">Password</string>
     <string name="password1">Confirm-Password</string>
     <string name="e_mail">Email</string>
     <string name="tag">Start keeping your todo list</string>
-    <string name="swipe_right_for_login">Swipe Right for Login</string>
-    <string name="register">Register</string>
+
 
     <string name="your_name">Username</string>
-    <string name="title_activity_home1">HomeActivity1</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main2">Main2Activity</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-
-    <string name="home_second">Home Second</string>
-    <string name="button">Button</string>
-    <string name="main_activity_name">All Tasks</string>
-    <string name="add_task_activity_name">Add a New Task</string>
 
     <!-- Strings for MainActivity -->
-    <string name="priority_1">1</string>
-    <string name="priority_2">2</string>
-    <string name="priority_3">3</string>
 
     <!-- Strings for AddTaskActivity -->
     <!-- This etaskEntrytask has a unicode character for "..." = "&#8230;" -->
@@ -49,8 +26,22 @@
     <string name="add_button">Add</string>
     <string name="update_button">Update</string>
 
-    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
-    <string name="tap_on_mic">Tap on mic to speak</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="get_date">Get Date</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_sign_in">Already Have an Account? Sign in</string>
+    <string name="todo_list">TODO - List</string>
+    <string name="notification_fragment">Notification Fragment</string>
+    <string name="name">abcde</string>
+    <string name="total_list">Total list</string>
+    <string name="count">1205</string>
+    <string name="mailing">saj@gmail.com</string>
+    <string name="priority">Priority</string>
+    <string name="list">List</string>
+    <string name="profile">Profile</string>
+
+    <string name="logout">Logout</string>
 
 
 </resources>

@@ -18,9 +18,9 @@
         android:layout_width="346dp"
         android:layout_height="120dp"
         android:layout_marginLeft="1dp"
-        android:layout_weight="1"
         android:background="#03A9F4"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginStart="1dp">
 
         <TextView
             android:id="@+id/taskTitle"

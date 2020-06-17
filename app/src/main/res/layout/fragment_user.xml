@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/graylight"
@@ -8,7 +9,7 @@
     <LinearLayout
 
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
 
 
@@ -28,7 +29,8 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="45dp"
-                android:src="@drawable/ic_android_black_24dp" />
+                android:src="@drawable/ic_android_black_24dp"
+                android:contentDescription="User Android" />
 
             <TextView
                 android:id="@+id/tvUsers"
@@ -36,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Wiliam Snoe"
+                android:text="@string/name"
                 android:textColor="@color/graylight"
                 android:textSize="21sp"
                 android:textStyle="bold" />
@@ -52,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="3"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -64,7 +67,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total list"
+                        android:text="@string/total_list"
                         android:textColor="@color/circleBorder"
                         android:textSize="20sp" />
 
@@ -73,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:text="1205"
+                        android:text="@string/count"
                         android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -94,13 +97,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="25dp">
+            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
 
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_email_black_24dp" />
+                android:src="@drawable/ic_email_black_24dp"
+                android:contentDescription="Email" />
 
             <TextView
                 android:id="@+id/et_email"
@@ -108,10 +114,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Wiliam@gmail.com"
+                android:text="@string/mailing"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,12 +126,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:orientation="horizontal"
-            android:paddingLeft="25dp">
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:paddingStart="25dp"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/user" />
+                android:src="@drawable/user"
+                android:contentDescription="Password" />
 
             <TextView
                 android:id="@+id/tvUser"
@@ -132,20 +143,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingStart="20dp" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp">
-
-        </LinearLayout>
-
     </LinearLayout>
 
 

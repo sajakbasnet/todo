@@ -20,10 +20,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private User user;
-    private TaskEntry task;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +46,8 @@ public class HomeActivity extends AppCompatActivity {
 
                             break;
                         case R.id.nav_profile:
-                            user = (User) getIntent().getSerializableExtra("User");
-                            task = (TaskEntry) getIntent().getSerializableExtra("todolists");
+                            User user = (User) getIntent().getSerializableExtra("User");
+                            TaskEntry task = (TaskEntry) getIntent().getSerializableExtra("todolists");
                             selectedFragment = new UserFragment();
                             break;
                         case R.id.nav_notification:

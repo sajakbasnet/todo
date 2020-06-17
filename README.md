@@ -21,7 +21,7 @@
 <p><i> - User will be able to delete the todo by swiping left or right from the list</i></p>
 
 ### <b>6.Todo by Priority </b>
-<p><i> - User will be able to view todo item according to prioirty</i></p>
+<p><i> - User will be able to view todo item according to priority</i></p>
 
 <hr>
 
@@ -77,40 +77,64 @@
 
 Login         |  Register                     |
 :----------------------------:|:--------------------------------------:|
-<img src = "login.jpg" width="200" height="360">  |  <img src = "register.jpg" width="200" height="360">        
+<img src = "Screenshot/login.jpg" width="200" height="360">  |  <img src = "Screenshot/register.jpg" width="200" height="360">        
 
 - user description
 
 Description       |                      
 :----------------------------:|
-<img src = "description.jpg" width="200" height="360">  |  
+<img src = "Screenshot/description.jpg" width="200" height="360">  |  
 
 - swipe feature
 
 Swipe      |                      
 :----------------------------:|
-<img src = "swipe.jpg" width="200" height="360">  | 
+<img src = "Screenshot/swipe.jpg" width="200" height="360">  | 
 
 - calendar view
 
 Calendar     |                      
 :----------------------------:|
-<img src = "calendar.jpg" width="200" height="360">  | 
+<img src = "Screenshot/calendar.jpg" width="200" height="360">  | 
 
 
 - time notification
 
 Time Set        |  Notification                   |
 :----------------------------:|:--------------------------------------:|
-<img src = "time.jpg" width="200" height="360">  |  <img src = "notification.jpg" width="200" height="360">   
+<img src = "Screenshot/time.jpg" width="200" height="360">  |  <img src = "Screenshot/notification.jpg" width="200" height="360">   
 
 - speech to text
 
 Speech        |  To Text                  |
 :----------------------------:|:--------------------------------------:|
-<img src = "speech.jpg" width="200" height="360">  |  <img src = "totext.jpg" width="200" height="360">   
+<img src = "Screenshot/speech.jpg" width="200" height="360">  |  <img src = "Screenshot/totext.jpg" width="200" height="360">   
 
 <hr>
+
+## Validation 
+
+- User login
+
+Email Required       |         Password required            |
+:----------------------------:|:--------------------------------------:|
+<img src = "Screenshot/loginval.jpg" width="200" height="360">  |  <img src = "Screenshot/passval.jpg" width="200" height="360">    
+
+- Register 
+
+Username Required      |  Password not matching                 |
+:----------------------------:|:--------------------------------------:|
+<img src = "Screenshot/usernameregister.jpg" width="200" height="360">  |  <img src = "Screenshot/notregister.jpg" width="200" height="360">  
+
+- Task Added
+
+Task Validation    |                      
+:----------------------------:|
+<img src = "Screenshot/taskval.jpg" width="200" height="360">  | 
+
+<hr>
+
+
 
 ## Application Development 
 - Master
@@ -154,7 +178,7 @@ Finally, the view role in this pattern is to observe (or subscribe to) a ViewMod
 
 <hr>
 
-### Architechture
+### Architecture
 
 #### 1. Activity
 An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI with setContentView(View). While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows (via a theme with R.attr.windowIsFloating set), Multi-Window mode or embedded into other windows. There are two methods almost all subclasses of Activity will implement: 

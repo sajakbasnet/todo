@@ -27,14 +27,17 @@
         android:layout_height="50dp"
         android:gravity="start"
         android:hint="@string/edit_task_title"
-        android:paddingBottom="@dimen/activity_horizontal_margin" />
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:autofillHints="@string/edit_task_title" />
         <ImageView
             android:id="@+id/speak1"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center"
             android:layout_marginLeft="8dp"
-            android:src="@android:drawable/ic_btn_speak_now" />
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:contentDescription="Title Mic"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +57,9 @@
         android:layout_height="36dp"
         android:layout_gravity="center"
         android:layout_marginLeft="8dp"
-        android:src="@android:drawable/ic_btn_speak_now" />
+        android:layout_marginStart="8dp"
+        android:src="@android:drawable/ic_btn_speak_now"
+        android:contentDescription="Description Mic" />
     </LinearLayout>
 
     <!-- TextView and FrameLayout (which contains buttons) for Priority Selection -->
@@ -113,7 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:hint="Enter Date"
+        android:hint="@string/enter_date"
        android:ems="10"
         android:paddingBottom="@dimen/activity_horizontal_margin" />
     <Button
@@ -123,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/colorAccent"
-        android:text="Get Date"
+        android:text="@string/get_date"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@android:color/primary_text_dark" />
@@ -132,12 +137,12 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-          android:textSize="18dp"
-        android:textStyle="bold" />
+          android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="130dp" />
 
     <Button
         android:id="@+id/saveButton"

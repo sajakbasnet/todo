@@ -1,6 +1,5 @@
 package com.example.todouser.database;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     private int id;
     private String userName;
     private String password;
@@ -21,12 +19,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @NonNull
     public int getId() {
         return id;
     }
 
-    public void setId(@NonNull int uid) {
+    public void setId(int uid) {
         this.id = uid;
     }
 
