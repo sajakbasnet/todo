@@ -108,7 +108,13 @@ Time Set        |  Notification                   |
 
 Speech        |  To Text                  |
 :----------------------------:|:--------------------------------------:|
-<img src = "Screenshot/speech.jpg" width="200" height="360">  |  <img src = "Screenshot/totext.jpg" width="200" height="360">   
+<img src = "Screenshot/speech.jpg" width="200" height="360">  |  <img src = "Screenshot/totext.jpg" width="200" height="360">  
+
+- Navigation
+
+Bottom Navigation       |  Options Menu                  |
+:----------------------------:|:--------------------------------------:|
+<img src = "Screenshot/bottomnavigation.jpg" width="200" height="360">  |  <img src = "Screenshot/optmenu.jpg" width="200" height="360">  
 
 <hr>
 
